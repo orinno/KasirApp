@@ -1,0 +1,92 @@
+body{
+    padding:0;
+    margin:0;
+    background-color: cadetblue;
+    background-size: cover;
+}
+
+.box-login{
+    width: 100%;
+}
+
+h2{
+    Font-size:37px;
+    text-align:center;
+    border:3px solid #40e0d0;
+    width: 400px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    margin:auto;
+    margin-top: 180;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: rgba(60,60,60);
+    color: white;
+    opacity: 0,9;
+}
+
+    form{
+        border: 4px solid #40e0d0;
+        font-family: arial;
+        width: 400px;
+        margin:auto;
+        margin-top: 5px;
+        color: whitesmoke;
+        background-color: rgba(60,60,60);
+        opacity:0,9;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+}
+
+.container-al46{
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 40px;
+}
+
+input[type="text"] , input[type="password"]{
+    display: inline-block;
+    padding: 2px 10px;
+    box-sizing: border-box;
+    margin: 8px 0px;
+    background:transparent;
+    border:none;
+    outline:none;
+    border-bottom:1px solid #ffffff;
+    color: whitesmoke;
+}
+
+button{
+    width: 70px;
+    padding: 4px 13px;
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    border-radius: 25px;
+    font-size: 18px;
+}
+.btn{
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+button[type=submit]:hover{
+    cursor:pointer;
+    background-color: #40e0d0;
+    color: #ffffff;
+}
+
+.fpw{
+    margin-top: 8px;
+}
+span.fpw{
+    text-align: center;
+    padding: 15px 0px;
+    margin-top: 10px;
+}
+
+a{
+    color: white;
+}
