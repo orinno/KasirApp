@@ -41,7 +41,10 @@ a{
   color: #fff;
   transform: scale(0.9);
 }
-
+.alert{
+  padding: 0.5em;
+  width: 50%;
+}
 
 /* CSS SIDEBAR */
 .sidebar{
@@ -311,9 +314,62 @@ form .form-group label{
   margin: 0.5em;
 }
 .box{
-  padding: 2.5em;
-  margin: 0.5em;
+  padding: 1em;
   background: white;
+  border-radius: 10px;
+  display: flex;
+  margin: 0.3em;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.detail{
+  padding: 0.5em;
+  background: #ededed;
+  border-radius: 10px;
+  margin: 0.3em;
+  width: 6em;
+  color: #333;
+  text-align: center;
+  margin-left: 5em;
+  margin-top: -3em;
+}
+.detail h6{
+  margin-bottom: 0px;
+}
+.detail2{
+  padding: 0.5em;
+  background: #ededed;
+  border-radius: 10px;
+  margin: 0.3em;
+  width: 6em;
+  color: #333;
+  text-align: center;
+  margin-top: 1em;
+}
+.detail2 button{
+  border: none;
+}
+.ihome{
+  margin-block: auto;
+  background-color: #1c3d52;
+  border-radius: 1em;
+  text-align: center;
+  padding: 0.7em 0.5em 0.5em 0.5em;
+}
+.ihome i{
+  font-size: 4.5em;
+  width: 100%;
+  color: #fff;
+}
+.ehome{
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.ehome h5{
+  color: #666;
+}
+.ehome h1{
+  font-weight: 600;
 }
 
 /* CSS Laporan */
@@ -375,41 +431,92 @@ table.table-bordered.dataTable thead tr:first-child th{
   font-weight: 600;
 }
 
-/* CSS Laporan */
-    /* button.dt-button{
-        background: #1c3d52;
-        color: #fff;
-        border: none;
-        margin-bottom: 1.5em;
-        padding: 5px 13px 5px 13px;
-        border-radius: 5px;
-    }
-    table.dataTable.no-footer{
-        margin-bottom: 1em;
-    }
-    button.dt-button:hover:not(.disabled){
-        background-color: #1c3d52;
-        padding: 5px 13px 5px 13px;
-        border: none;
-    }
-    button.dt-button:focus:not(.disabled){
-        background: #1c3d52;
-        background-color: #1c3d52;
-        border: none;
-        text-shadow: none;
-        color: black;
-        box-shadow: none;
-    }
-    .dataTables_wrapper .dataTables_paginate .paginate_button:hover{
-        padding: 0px 5px 0px 5px;
-        background: #1c3d52;
-    }
-    .dataTables_wrapper .dataTables_paginate .paginate_button{
-        padding: 0px 5px 0px 5px;
-    }
-    .dataTables_wrapper .dataTables_paginate .paginate_button:active{
-        padding: 0px 5px 0px 5px;
-    }
-    .dataTables_wrapper .dataTables_paginate .paginate_button.current{
-        padding: 0px 5px 0px 5px;
-    } */
+/* calendar */
+.calendar {
+  width: 45rem;
+  height: 52rem;
+  background-color: #222227;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+}
+
+.month {
+  width: 100%;
+  height: 12rem;
+  background-color: #167e56;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  text-align: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.month i {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.month h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.month p {
+  font-size: 1.6rem;
+}
+
+.weekdays {
+  width: 100%;
+  height: 5rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.weekdays div {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  width: calc(44.2rem / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.2rem;
+}
+
+.days div {
+  font-size: 1.4rem;
+  margin: 0.3rem;
+  width: calc(40.2rem / 7);
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s;
+}
+
+.days div:hover:not(.today) {
+  background-color: #262626;
+  border: 0.2rem solid #777;
+  cursor: pointer;
+}
+
+.prev-date,
+.next-date {
+  opacity: 0.5;
+}
+
+.today {
+  background-color: #167e56;
+}

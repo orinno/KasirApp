@@ -12,14 +12,12 @@ if (isset($_SESSION['cart'])) {
         $sum += ($value['harga'] * $value['qty']) - $value['diskon'];
     }
 }
-	$total = $_POST['total'];
-	$bayar = $_POST['bayar'];
-	$kembalian = $total - $bayar;
+	
 ?>
 
 <div class="container">
 	<!-- bayar dan total -->
-	<div class="page-box">
+	<div class="page-box perhitungan">
 		<div class="row">
 			<div class="col-lg-6">
 				<form action="transaksi_act.php" name="autoSumForm" method="POST">
@@ -32,7 +30,7 @@ if (isset($_SESSION['cart'])) {
 				</form>
 			</div>
 			<div class="col-lg-6">
-				<form action="" name="autoSumForm">
+				<form action="">
 				<div class="form-group">
 					<label style="font-size: 20px; padding-bottom: 0.5em;">Total :</label>
 					<h1 class="total"><?=number_format($sum)?></h1>

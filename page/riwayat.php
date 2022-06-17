@@ -59,7 +59,7 @@ $view = $dbconnect->query('SELECT * FROM transaksi');
 			<td><?=$row['total']?></td>
 			<td><?=$row['nama']?></td>
 			<td>
-                <a href="unduh_struk.php?idtrx=<?=$row['id_transaksi']?>" class="btn btn-primary">Lihat</a>
+                <a href="unduh_struk.php?idtrx=<?=$row['id_transaksi']?>" style="padding: 5px;" class="btn-biru btn-sm">Lihat</a>
 			</td>
 		</tr>
 		<?php } ?>

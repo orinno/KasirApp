@@ -19,8 +19,8 @@ include 'authcheck.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="asset/css/style.css">
     <!-- ICON FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -43,7 +43,7 @@ include 'authcheck.php';
       </li>
       <li>
        <a href="index.php?page=user">
-         <i class='bx bx-user' ></i>
+       <i class='bx bxs-user-detail' ></i>
          <span class="links_name">User</span>
        </a>
        <span class="tooltip">User</span>
@@ -113,26 +113,8 @@ include 'authcheck.php';
     ?>
   </section>
 <!-- END ISIS -->
-<style>
-  *{font-weight: 400;}
-</style>
 
 <!-- SCRIPT SIDEBAR -->
-<script type="text/javascript">
- $("#subtotal").keyup(function(){   
-   var a = parseFloat($("#subtotal").val());
-   var b = parseFloat($("#ppn").val());
-   var c = b-a;
-   $("#total").val(c);
- });
- 
- $("#ppn").keyup(function(){
-   var a = parseFloat($("#subtotal").val());
-   var b = parseFloat($("#ppn").val());
-   var c = b-a;
-   $("#total").val(c);
- });
-</script>
 <script>
   let sidebar = document.querySelector(".sidebar");
   let closeBtn = document.querySelector("#btn");
@@ -156,7 +138,10 @@ include 'authcheck.php';
      closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
    }
   }
-  </script>
+</script>
+<style>
+  *{font-weight: 400;}
+</style>
 <!-- END SCRIPT SIDEBAR -->
 </body>
 </html>

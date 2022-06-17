@@ -7,33 +7,6 @@ if (isset($_POST['kode_barang'])) {
     $kode_barang = $_POST['kode_barang'];
     $qty = 1;
 
-    //otomatis mengurangi stok
-    $selSto =mysqli_query($dbconnect, "SELECT * FROM barang WHERE kode_barang='$kode_barang'");
-    $sto    =mysqli_fetch_array($selSto);
-    $stok    =$sto['jumlah'];
-    //menghitung sisa stok
-    $sisa    =$stok-$qty;
-    
-    if ($stok < $qty) {
-        ?>
-        <script language="JavaScript">
-            alert('Oops! Jumlah pengeluaran lebih besar dari stok ...');
-            document.location='./';
-        </script>
-        <?php
-    }
-    //proses    
-    else{
-        //update stok
-        $upstok= mysqli_query($dbconnect, "UPDATE barang SET jumlah='$sisa' WHERE kode_barang='$kode_barang'");
-        ?>
-        <script language="JavaScript">
-            alert('Good! Input transaksi pengeluaran barang berhasil ...');
-            document.location='./';
-        </script>
-        <?php
-    }
-
     //menampilkan data barang
     $data = mysqli_query($dbconnect, "SELECT * FROM barang WHERE kode_barang='$kode_barang'");
     $b = mysqli_fetch_assoc($data);

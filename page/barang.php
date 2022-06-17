@@ -43,10 +43,25 @@ $view = $dbconnect->query('SELECT * FROM barang');
 		}
 		$_SESSION['success'] = '';
 		?>
+
+		<!-- alert stok barang kosong -->
+		<?php 
+			$ambildatastok = mysqli_query($dbconnect, "SELECT * FROM barang WHERE jumlah < 1");
+
+			while ($fetch=mysqli_fetch_array($ambildatastok)) {
+				$barang = $fetch['nama'];
+		?>
+		<div class="alert alert-danger alert-dismissible fade show" role="alert">
+			<strong>Perhatian!</strong> stok <?=$barang?> telah kosong.
+			<button type="button" style="padding: 12px;" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+		<?php } ?>
+
 		<h1 style="margin-bottom: 0.5em;">List Barang</h1>
 		<a href="index.php?page=barang_add" class="btn-sm btn-biru">Tambah data</a>
 		<a href="barang_cetak_barcode.php"  class="btn-sm btn-biru">Cetak Barcode</a>
 		<hr width="30%" style="margin-bottom: 0;">
+
 		<div class="data-tables datatable-dark">
 			<!-- Masukkan table nya disini, dimulai dari tag TABLE -->
             <table class="table table-bordered" width="100%" cellspacing="0" id="tbl">
