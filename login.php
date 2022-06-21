@@ -55,7 +55,7 @@ if (isset($_POST['login'])) {
     <!-- LOGIN -->
     <div class="container">
         <form action="" method="POST" class="login-email">
-            <p class="login-text" style="text-align: center; font-size: 2rem; font-weight: 600;">MomskyApp</p>
+            <p class="login-text" style="text-align: center; font-size: 2rem; font-weight: 600;">E-Cash</p>
             <!-- Alert -->
             <?php if (isset($_SESSION['error']) && $_SESSION['error'] != '') { ?>
 				<div class="alert alert-danger" role="alert">

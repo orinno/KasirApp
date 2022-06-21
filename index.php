@@ -1,18 +1,18 @@
 <?php 
 include "config.php";
 session_start();
-error_reporting(0);
 include 'authcheck.php';
+error_reporting(0);
 // print_r($_SESSION);
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Toko Momsky</title>
+    <title>E-Market</title>
     <script src="../asset/js/jquery.js"></script>
     <!-- Bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" ></script>
@@ -23,6 +23,7 @@ include 'authcheck.php';
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body style="background: #ededed;">
   
@@ -30,11 +31,12 @@ include 'authcheck.php';
   <div class="sidebar open bg-dark-blue">
     <div class="logo-details">
     <i class="fab fa-shopify icon"></i>
-        <div class="logo_name">MomskyApp</div>
+        <div class="logo_name">E-Market</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
+    <hr style="color: white; margin: 0; margin-top: 0.5em;">
     <ul class="nav-list" style="padding-left: 0px;">
-      <li class="active">
+      <li>
         <a href="index.php?page=home">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
@@ -97,7 +99,7 @@ include 'authcheck.php';
         <nav class="navbar navbar-light ">
             <div class="container-fluid">
             <a class="navbar-brand">
-                <h3 class="m-0">Toko Momsky</h3>
+                <h3 class="m-0">E-Market</h3>
             </a>
             </div>
         </nav> 
@@ -112,6 +114,15 @@ include 'authcheck.php';
       }
     ?>
   </section>
+
+  <!-- footer -->
+    <footer>
+        <div class="container">
+        <p style="text-align: center; font-size: medium; font-family: 'Poppins';">
+        ©2022 E-Market. By @community</p>
+        </div>
+    </footer>
+    <!-- end footer -->
 <!-- END ISIS -->
 
 <!-- SCRIPT SIDEBAR -->

@@ -1,9 +1,8 @@
-
 <?php
 ob_start();
 include '../config.php';
 session_start();
-include '../authcheck.php';
+include '../authcheckkasir.php';
 
 if (isset($_GET['id'])) {
 
@@ -13,7 +12,6 @@ if (isset($_GET['id'])) {
 
 	$_SESSION['success'] = 'Berhasil menghapus data';
 
-	header('location: index.php?page=dis_barang');
+	echo "<script>window.location.href='index.php?page=disbarang';</script>";
 }
-
 ?>

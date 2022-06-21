@@ -1,8 +1,5 @@
-
 <?php
-
 include 'authcheck.php';
-
 $view = $dbconnect->query("SELECT * FROM barang");
 
 if (isset($_GET['id'])) {
@@ -27,33 +24,36 @@ if(isset($_POST['update']))
 	$_SESSION['success'] = 'Berhasil memperbaruhi data';
 
 	// mengalihkan halaman ke list barang
-	header('location: index.php?page=dis_barang');
+	echo "<script>window.location.href='index.php?page=disbarang';</script>";
 }
-
 ?>
 
 <div class="container">
 	<div class="page-box">
 		<h1>Tambah Diskon</h1><br>
 		<form method="post">
+
 		<div class="form-group">
-			<label>Barang Yang Di Diskon</label>
+			<label class="fw-bold">Barang yang di diskon</label>
 			<select name="barang_id" id="" class="form-control">
 			<?php while ($row = $view->fetch_array()): ?>
 				<option value="<?=$row['id_barang']?>" <?=$data['barang_id']==$row['id_barang']?'selected':''?> ><?=$row['nama']?></option>
 			<?php endwhile; ?>
 			</select>
 		</div>
+
 		<div class="form-group">
-			<label>Qty Min Potongan</label>
+			<label class="fw-bold">Batas Nominal Qty</label>
 			<input type="text" name="qty" class="form-control" placeholder="Batas Nominal" value="<?=$data['qty']?>">
 		</div>
+
 		<div class="form-group">
-			<label>Potongan</label>
+			<label class="fw-bold">Jumlah Potongan</label>
 			<input type="text" name="potongan" class="form-control" placeholder="Jumlah Potongan" value="<?=$data['potongan']?>">
 		</div>
-		<input type="submit" name="update" value="Update" class="btn-biru">
-		<a href="?page=dis_barang" class="btn-biru">Kembali</a>
+
+		<input type="submit" name="update" value="Update" class="btn btn-success">
+		<a href="?page=dis_barang" class="btn btn-warning">Kembali</a>
 		</form>
 	</div>
 </div>

@@ -31,7 +31,7 @@ $detail = mysqli_query($dbconnect,"SELECT transaksi_detail.*, barang.nama FROM `
 			</tr>
 			<tr align="center"><td><hr></td></tr>
 			<tr align="center">
-				<td>#<?=$trx['nomor']?> | <?=date('d-m-Y ',strtotime($trx['tanggal_waktu']))?> <?=$trx['nama']?></td>
+				<td>#<?=$trx['nomor']?> | <?=date('d-m-Y H:i:s',strtotime($trx['tanggal_waktu']))?> <?=$trx['nama']?></td>
 			</tr>
 			<tr><td><hr></td></tr>
 		</table>

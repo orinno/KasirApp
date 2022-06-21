@@ -1,7 +1,5 @@
-
 <?php
 include 'authcheck.php';
-
 $role = mysqli_query($dbconnect,"SELECT * FROM role");
 
 if (isset($_GET['id'])) {
@@ -12,7 +10,7 @@ if (isset($_GET['id'])) {
 	$data = mysqli_fetch_assoc($data);
 }
 
-if(isset($_POST['update']))
+if(isset($_POST['updateBrg']))
 {
 	$id = $_GET['id'];
 
@@ -27,28 +25,29 @@ if(isset($_POST['update']))
 	$_SESSION['success'] = 'Berhasil memperbaruhi data';
 
 	// mengalihkan halaman ke list barang
-	header('location: index.php?page=user');
+	echo "<script>window.location.href='index.php?page=user';</script>";
+	// header('location: index.php?page=user');
 }
-
 ?>
+
 <div class="container">
 	<div class="page-box">
-	<h1>Edit Barang</h1>
+	<h1>Edit User</h1>
 		<form method="post">
 		<div class="form-group">
-			<label>Nama</label>
-			<input type="text" name="nama" class="form-control" placeholder="Nama User" value="<?=$data['nama']?>">
+			<label class="fw-bold">Nama</label>
+			<input type="text" name="nama" class="form-control p-2" placeholder="Nama User" value="<?=$data['nama']?>">
 		</div>
 		<div class="form-group">
-			<label>Username</label>
-			<input type="text" name="username" class="form-control" placeholder="Username" value="<?=$data['username']?>">
+			<label class="fw-bold">Username</label>
+			<input type="text" name="username" class="form-control p-2" placeholder="Username" value="<?=$data['username']?>">
 		</div>
 		<div class="form-group">
-			<label>Password</label>
-			<input type="text" name="password" class="form-control" placeholder="Password" value="<?=$data['password']?>">
+			<label class="fw-bold">Password</label>
+			<input type="text" name="password" class="form-control p-2" placeholder="Password" value="<?=$data['password']?>">
 		</div>
 		<div class="form-group">
-			<label>Role Akses</label>
+			<label class="fw-bold">Role Akses</label>
 			<select class="form-control" name="role_id">
 				<option value="">Pilih Role Akses</option>
 
@@ -59,8 +58,8 @@ if(isset($_POST['update']))
 			<?php } ?>
 			</select>
 		</div>
-		<input type="submit" name="update" value="Perbaruhi" class="btn-biru">
-		<a href="?page=user" class="btn-biru">Kembali</a>
+		<input type="submit" name="updateBrg" value="Perbaruhi" class="btn bnt-primary">
+		<a href="?page=user" class="btn btn-warning">Kembali</a>
 		</form>
 	</div>
 </div>

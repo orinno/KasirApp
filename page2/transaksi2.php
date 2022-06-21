@@ -1,85 +1,64 @@
 <?php
-include 'config.php';
 include 'authcheckkasir.php';
+include 'config.php';
 
-$barang = mysqli_query($dbconnect, 'SELECT * FROM barang');
-
+$barang = mysqli_query($dbconnect, 'SELECT * FROM barang AND disbarang');
 // print_r($_SESSION);
 
 $sum = 0;
+$kembalian = 0;
 if (isset($_SESSION['cart'])) {
     foreach ($_SESSION['cart'] as $key => $value) {
         $sum += ($value['harga'] * $value['qty']) - $value['diskon'];
     }
 }
+	
 ?>
 
-<html>
-<body>
-
 <div class="container">
-	<h2 style="font-weight: 600; margin-left: 16px;">Transaksi</h2>
-	<div class="row">
-		<div class="col-lg-3">
-			<div class="box" style="padding: 2.1em; border-left: 5px solid #006900">
-				<h2>Hai <?=$_SESSION['nama']?></h2>
-				<input type="text" style="width: 150px;" readonly="readonly" class="form-control" value="<?php echo date("j F Y");?>">
-			</div>
-		</div>
-		<div class="col-lg-4">
-			<div class="box" style="border-left: 5px solid #006900">
+	<!-- bayar dan total -->
+	<div class="page-box perhitungan">
+		<div class="row">
+			<div class="col-lg-6">
 				<form action="transaksi_act.php" name="autoSumForm" method="POST">
 					<input type="hidden" name="total" value="<?=$sum?>">
 					<div class="form-group">
 						<label style="font-size: 20px;">Bayar :</label>
 						<input type="text" id="bayar" name="bayar" class="form-control txt-input">
 					</div>
-					<button type="submit" class="btn btn-primary">Selesai</button>
+					<button type="submit" class="btn-sm btn-biru">Selesai</button>
 				</form>
 			</div>
-		</div>
-		<div class="col-lg-5">
-			<div class="box" style="border-left: 5px solid #006900">
+			<div class="col-lg-6">
 				<form action="">
-					<div class="form-group">
-						<label style="font-size: 20px; padding-bottom: 0.5em;">Total :</label>
-						<h1 class="total"><?=number_format($sum)?></h1>
-					</div>
+				<div class="form-group">
+					<label style="font-size: 20px; padding-bottom: 0.5em;">Total :</label>
+					<h1 class="total"><?=number_format($sum)?></h1>
+				</div>
 				</form>
 			</div>
 		</div>
 	</div>
-
 	<!-- tabel  -->
-	<div class="page-box" style="margin: 1em 0.3em 1em 0.3em; border-left: 5px solid #006900">
+	<div class="page-box">
 		<div class="row">
 			<div class="col-lg-12">
-				<form class="row g-3" method="POST" action="keranjang_act.php">
-					<div class="col-3">
-						<input type="search" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang" autofocus>
+				<form method="post" action="keranjang_act.php">
+					<div class="form-group">
+						<input type="text" name="kode_barang" class="form-control" placeholder="Masukkan Kode Barang" autofocus>
 					</div>
-					<div class="col-auto">
-						<a href="keranjang_reset.php" class="btn btn-warning mb-3">Reset</a>
-					</div>
+					<a href="keranjang_reset.php" class="btn-sm btn-biru">Reset Keranjang</a><br><br>
 				</form>
 			</div>
+			<!-- <div class="col-lg-4">
+				<input type="text" style="width: 150px;" readonly="readonly" class="form-control" value="<?php echo date("j F Y");?>">
+			</div> -->
 		</div>
-
-		<?php if (isset($_SESSION['danger']) && $_SESSION['danger'] != '') {?>
-			<div class="alert alert-danger" role="alert">
-				<?=$_SESSION['danger']?>
-			</div>
-		<?php
-		}
-		$_SESSION['danger'] = '';
-		?>
 		<br>
-
 		<form method="post" action="keranjang_update.php">
 			<table class="table table-bordered" width="100%" cellspacing="0">
 				<tr class="table-light">
 					<th>Nama</th>
-					<th>Satuan</th>
 					<th>Harga</th>
 					<th>Qty</th>
 					<th>Sub Total</th>
@@ -90,12 +69,10 @@ if (isset($_SESSION['cart'])) {
 					<tr>
 						<td>
 							<?=$value['nama']?>
-							<?=$_SESSION['danger']?>
 							<?php if ($value['diskon'] > 0): ?>
-								<br><small class="label label-danger" style="color: red;">Diskon <?=number_format($value['diskon'])?></small>
+								<br><small class="label label-danger">Diskon <?=number_format($value['diskon'])?></small>
 							<?php endif;?>
 						</td>
-						<td><?=$value['satuan']?></td>
 						<td align="right"><?=number_format($value['harga'])?></td>
 						<td class="col-md-2">
 							<input type="number" name="qty[<?=$key?>]" value="<?=$value['qty']?>" class="form-control txt-input">
@@ -106,7 +83,6 @@ if (isset($_SESSION['cart'])) {
 				<?php } ?>
 				<?php endif; ?>
 			</table>
-			<button hidden type="submit">Perbaharui</button>
 		</form>
 	</div>
 <style>
@@ -117,9 +93,9 @@ if (isset($_SESSION['cart'])) {
 	.total{
 		margin: 0;
 		padding: 10px;
-		background-color: #f6f6f6;
+		background-color: #ededed;
 		text-align: right;
-		border-radius: 5px;
+		border-radius: 10px;
 		font-weight: 600;
 		color: #c00808;
 		font-size: 3em;
@@ -127,16 +103,13 @@ if (isset($_SESSION['cart'])) {
 	}
 	.txt-input{
 		font-weight: 600;
+		background-color: #ededed;
 	}
 	.table{
 		margin-top: -1.5em;
 	}
 	.form-group input{
-		background: #f6f6f6;
-	}
-	.box{
-		display: flow-root;
-		margin: none;
+		background: #f2f2f2;
 	}
 </style>
 </div>
@@ -178,6 +151,3 @@ if (isset($_SESSION['cart'])) {
         // console.log(clean);
     }
 </script>
-
-</body>
-</html>

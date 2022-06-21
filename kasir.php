@@ -1,19 +1,19 @@
+<!DOCTYPE html>
 <?php 
 include "config.php";
 session_start();
 include 'authcheckkasir.php';
 // print_r($_SESSION);
 error_reporting(0);
-require_once 'keranjang_act.php';
-
+require 'keranjang_act.php';
 ?>
-<!DOCTYPE html>
+
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Toko Momsky</title>
+    <title>E-Market</title>
     <!-- Bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" ></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"/>
@@ -30,7 +30,7 @@ require_once 'keranjang_act.php';
   <div class="sidebar open bg-dark-blue">
     <div class="logo-details">
     <i class="fab fa-shopify icon"></i>
-        <div class="logo_name">MomskyApp</div>
+        <div class="logo_name">E-Market</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list" style="padding-left: 0px;">
@@ -83,7 +83,7 @@ require_once 'keranjang_act.php';
         <nav class="navbar navbar-light ">
             <div class="container-fluid">
             <a class="navbar-brand">
-                <h3 class="m-0">Toko Momsky</h3>
+                <h3 class="m-0">E-Market</h3>
             </a>
             </div>
         </nav> 
@@ -99,6 +99,15 @@ require_once 'keranjang_act.php';
     ?>
   </section>
 <!-- END ISIS -->
+
+<!-- footer -->
+  <footer>
+    <div class="container-fluid">
+    <p style="text-align: center; font-size: medium; font-family: 'Poppins';">
+    ©2022 E-Market. By @community</p>
+    </div>
+  </footer>
+<!-- end footer -->
 
 <!-- SCRIPT SIDEBAR -->
 <script>

@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 session_start();
-include 'authcheckkasir.php';
+// include 'authcheckkasir.php';
 $view = $dbconnect->query('SELECT * FROM transaksi');
 // return var_dump($view);
 ?>

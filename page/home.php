@@ -5,10 +5,11 @@ error_reporting(0);
 ?>
 
 <div class="container">
-    <div class="row">
+    <h2 style="font-weight: 600; margin-left: 3px;">Dashboard</h2>
+    <div class="row" style="margin-bottom: 1em;">
         <div class="col-lg-4">
-            <div class="box" style="background-image: url('asset/img/dots-pattern-bg.png'); background-size: cover">
-                <div class="ihome">
+            <div class="box" style="border-left: 5px solid #006900; background-image: url('asset/img/dots-pattern-bg.png'); background-size: cover">
+                <div class="ihome" style="background-color: #006900;">
                 <i class='bx bx-cart-alt'></i>
                 </div>
                 <div class="ehome">
@@ -28,8 +29,8 @@ error_reporting(0);
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="box" style="background-image: url('asset/img/dots-pattern-bg.png'); background-size: cover">
-                <div class="ihome">
+            <div class="box" style="border-left: 5px solid #2b2bad; background-image: url('asset/img/dots-pattern-bg.png'); background-size: cover">
+                <div class="ihome" style="background-color: #2b2bad;">
                 <i class='bx bx-package'></i>
                 </div>
                 <div class="ehome">
@@ -49,8 +50,8 @@ error_reporting(0);
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="box" style="background-image: url('asset/img/dots-pattern-bg.png'); background-size: cover">
-                <div class="ihome">
+            <div class="box" style="border-left: 5px solid #b72626; background-image: url('asset/img/dots-pattern-bg.png'); background-size: cover">
+                <div class="ihome" style="background-color: #b72626;">
                 <i class='bx bx-user'></i>
                 </div>
                 <div class="ehome">
@@ -70,13 +71,18 @@ error_reporting(0);
             </div>
         </div>
     </div>
-    <hr>
+    
 
     <section class="pendapatan">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="box" style="background-image: url('asset/img/dots-pattern-bg.png'); background-size: contain;">
-                    <div class="ihome">
+            <div class="col-lg-7">
+                <div class="box" style="border-left: 5px solid #006900;">
+                    <?php require 'chart.php' ?>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="box" style="border-left: 5px solid #ffc107; background-image: url('asset/img/dots-pattern-bg.png'); background-size: contain;">
+                    <div class="ihome" style="background-color: #ffc107;">
                     <i style="font-size: 5em;" class='bx bx-wallet'></i>
                     </div>
                     <div class="ehome">
@@ -90,10 +96,6 @@ error_reporting(0);
                         echo "Rp. ".number_format($data['sumtotal']);
                         ?>
                         </h1>
-                        <div class="detail2">
-                            <button type="submit"><a href="index.php?page=laporan">Detail <i class='bx bx-right-arrow-alt'></i></a></button>
-                        </div>
-                        <hr style="margin-bottom: 0;">
                     </div>
                 </div>
             </div>

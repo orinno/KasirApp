@@ -34,6 +34,10 @@ $view = $dbconnect->query('SELECT disbarang.*, barang.nama as barang FROM disbar
 <body>
 		<div class="container">
 			<div class="page-box">
+				<h1 style="margin-bottom: 0.5em;">List Diskon Barang</h1>
+				<a href="index.php?page=dis_barang_add" class="btn btn-success">Tambah data</a>
+				<hr style="margin-bottom: 1em;">
+
 				<?php if (isset($_SESSION['success']) && $_SESSION['success'] != '') {?>
 					<div class="alert alert-success" role="alert">
 						<?=$_SESSION['success']?>
@@ -42,9 +46,7 @@ $view = $dbconnect->query('SELECT disbarang.*, barang.nama as barang FROM disbar
 					}
 					$_SESSION['success'] = '';
 				?>
-				<h1 style="margin-bottom: 0.5em;">List Diskon Barang</h1>
-				<a href="index.php?page=dis_barang_add" class="btn-sm btn-biru">Tambah data</a>
-				<hr width="30%" style="margin-bottom: 0;">
+
 				<div class="data-tables datatable-dark">
 					<table class="table table-bordered" id="tbl" style="width: 100%;">
 							<thead class="table-light">

@@ -7,6 +7,28 @@ if (isset($_POST['kode_barang'])) {
     $kode_barang = $_POST['kode_barang'];
     $qty = 1;
 
+    //jika kode barang yang dikirimkan tidak ada di database
+    if (!mysqli_num_rows(mysqli_query($dbconnect, "SELECT * FROM barang WHERE kode_barang='$kode_barang'"))) {
+        $_SESSION['danger'] = 'Kode barang tidak ditemukan';
+        //keranjang tidak diupdate karena kode barang tidak ditemukan
+        header('Location: kasir.php?page2=transaksi');
+        exit;
+    }
+
+    // jika kode barang yang diinputkan, stok barang stok barang kosong (0) maka tidak dapat ditambahkan ke keranjang
+    $q = mysqli_query($dbconnect, "SELECT * FROM barang WHERE kode_barang='$kode_barang'");
+    $d = mysqli_fetch_array($q);
+    if ($d['jumlah'] == 0) {
+        $_SESSION['danger'] = 'Stok barang kosong';
+        header('Location: kasir.php?page2=transaksi');
+        exit;
+    }
+
+    // //kalo jumlah beli lebih dari stok barang yang ada, qty di set ke jumlah maksimum stok barang
+    // if ($qty > $d['jumlah']) {
+    //     $qty = $d['jumlah'];
+    // }
+
     //menampilkan data barang
     $data = mysqli_query($dbconnect, "SELECT * FROM barang WHERE kode_barang='$kode_barang'");
     $b = mysqli_fetch_assoc($data);
@@ -51,6 +73,7 @@ if (isset($_POST['kode_barang'])) {
         $barang = [
             'id' => $b['id_barang'],
             'nama' => $b['nama'],
+            'satuan' => $b['satuan'],
             'harga' => $b['harga'],
             'qty' => $qty,
             'diskon' => 0,

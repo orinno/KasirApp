@@ -1,47 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Penjumlahan Inputbox Secara Otomatis Di HTML, PHP, Dan JQuery</title>
-<!-- <link href="../asset/css/bootstrap.css" rel="stylesheet"> -->
-<script src="../asset/js/jquery.js"></script>
-</head>
+<?php 
 
-<form class="form-horizontal" action="" method="post">
-	<div class="form-group">
-		<label class="col-lg-3 control-label">Total</label>
-		<div class="col-lg-3">
-			<input type="number" step="any" min="0" name="subtotal" id="subtotal" class="form-control" value="0">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-lg-3 control-label">Bayar</label>
-		<div class="col-lg-3">
-			<input type="number" step="any" min="0" name="ppn" id="ppn" class="form-control" value="0">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-lg-3 control-label">Kembalian</label>
-		<div class="col-lg-3">
-			<input type="text" name="total" id="total" class="form-control" Readonly value="0">
-		</div>
-	</div>
-</form>
+include '../config.php';
+session_start();
+// menampilkan data dari tabel barang ke tabel dari kode_barang
+$data = mysqli_query($dbconnect, "SELECT * FROM barang");
+$b = mysqli_fetch_assoc($data);
+
+// create array barang
+$barang = [
+	'id' => $b['id_barang'],
+	'nama' => $b['nama'],
+	'satuan' => $b['satuan'],
+	'jumlah' => $b['jumlah']
+];
+
+?>
+
+<html>
+<head></head>
+<body>
+	
+
+<div class="container">
+	<table>
+		<thead>
+			<tr>
+				<th>Nama Barang</th>
+				<th>Satuan</th>
+				<th>Jumlah</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><?php echo $barang['nama']; ?></td>
+				<td><?php echo $barang['satuan']; ?></td>
+				<td><?php echo $barang['jumlah']; ?></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
 </body>
 </html>
-
-<script type="text/javascript">
- $("#subtotal").keyup(function(){   
-   var a = parseFloat($("#subtotal").val());
-   var b = parseFloat($("#ppn").val());
-   var c = b-a;
-   $("#total").val(c);
- });
- 
- $("#ppn").keyup(function(){
-   var a = parseFloat($("#subtotal").val());
-   var b = parseFloat($("#ppn").val());
-   var c = b-a;
-   $("#total").val(c);
- });
-</script>

@@ -1,20 +1,28 @@
+<!-- CHART TRANSAKSI PER BULAN-->
 <?php 
   include '../config.php';
   $query = $dbconnect->query("
-    SELECT MONTH(tanggal_waktu) as tgl, 
-    SUM(total) as total 
-    FROM transaksi 
-    GROUP BY MONTH(tanggal_waktu);
+    SELECT MONTH(tanggal_waktu) as tgl,
+    COUNT(*) as total
+    FROM transaksi
+    GROUP BY MONTH(tanggal_waktu)
   ");
+
+//   SELECT MONTH(tanggal_waktu) as tgl, 
+//     SUM(total) as total 
+//     FROM transaksi 
+//     GROUP BY MONTH(tanggal_waktu);
 
   foreach($query as $data)
   {
     $month[] = $data['tgl'];
     $amount[] = $data['total'];
   }
+
 ?>
 
-<div style="width: 100%;">
+
+<div style="width: 600px;">
   <canvas id="myChart"></canvas>
 </div>
  
@@ -27,16 +35,16 @@
       label: 'Transaksi Perbulan',
       data: <?php echo json_encode($amount) ?>,
       backgroundColor: [
-        'rgba(43, 43, 173, 0.5)',
-        'rgba(255, 159, 64, 0.5)',
-        'rgba(255, 205, 86, 0.5)',
-        'rgba(75, 192, 192, 0.5)',
-        'rgba(54, 162, 235, 0.5)',
-        'rgba(153, 102, 255, 0.5)',
-        'rgba(201, 203, 207, 0.)'
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 205, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(201, 203, 207, 0.2)'
       ],
       borderColor: [
-        'rgb(43, 43, 173)',
+        'rgb(255, 99, 132)',
         'rgb(255, 159, 64)',
         'rgb(255, 205, 86)',
         'rgb(75, 192, 192)',

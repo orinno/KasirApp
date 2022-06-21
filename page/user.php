@@ -34,6 +34,11 @@ $view = $dbconnect->query("SELECT u.*,r.nama as nama_role FROM user as u INNER J
 <body>
 <div class="container">
 	<div class="page-box">
+		
+		<h1 style="margin-bottom: 0.5em;">List User</h1>
+		<a href="index.php?page=user_add" class="btn btn-success">Tambah data</a><br>
+		<hr style="margin-bottom: 1em;">
+
 		<?php if(isset($_SESSION['success']) && $_SESSION['success'] != '') {?>
 			<div class="alert alert-success" role="alert">
 				<?=$_SESSION['success']?>
@@ -42,13 +47,11 @@ $view = $dbconnect->query("SELECT u.*,r.nama as nama_role FROM user as u INNER J
 			}
 			$_SESSION['success'] = '';
 		?>
-		<h1 style="margin-bottom: 0.5em;">List User</h1>
-		<a href="index.php?page=user_add" class="btn-sm btn-biru">Tambah data</a><br>
-		<hr width="30%" style="margin-bottom: 0;">
+
 		<table class="table table-bordered" width="100%" cellspacing="0" id="tbl">
 			<thead class="table-light">
 				<tr>
-					<th>ID User</th>
+					<th width="10%">ID User</th>
 					<th>Nama</th>
 					<th>Username</th>
 					<th>Password</th>

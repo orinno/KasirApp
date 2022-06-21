@@ -30,11 +30,16 @@ $view = $dbconnect->query('SELECT * FROM barang');
 
         <link rel="stylesheet" href="/asset/css/style.css">
 </head>
-
 <body>
 
 <div class="container">
     <div class="page-box">
+		
+		<h1 style="margin-bottom: 0.5em;">List Barang</h1>
+		<a href="index.php?page=barang_add" class="btn btn-success">Tambah data</a>
+		<a href="barang_cetak_barcode.php"  class="btn btn-primary">Cetak Barcode</a>
+		<hr style="margin-bottom: 1em;">
+		
 		<?php if (isset($_SESSION['success']) && $_SESSION['success'] != '') {?>
 			<div class="alert alert-success" role="alert">
 				<?=$_SESSION['success']?>
@@ -57,19 +62,14 @@ $view = $dbconnect->query('SELECT * FROM barang');
 		</div>
 		<?php } ?>
 
-		<h1 style="margin-bottom: 0.5em;">List Barang</h1>
-		<a href="index.php?page=barang_add" class="btn-sm btn-biru">Tambah data</a>
-		<a href="barang_cetak_barcode.php"  class="btn-sm btn-biru">Cetak Barcode</a>
-		<hr width="30%" style="margin-bottom: 0;">
-
+		<!-- datatable -->
 		<div class="data-tables datatable-dark">
-			<!-- Masukkan table nya disini, dimulai dari tag TABLE -->
             <table class="table table-bordered" width="100%" cellspacing="0" id="tbl">
 				<thead class="table-light">
 					<tr>
-						<th width="15%">ID Barang</th>
 						<th>Kode</th>
 						<th>Nama</th>
+						<th>Satuan</th>
 						<th>Harga</th>
 						<th width="150">Jumlah Stok</th>
 						<th>Aksi</th>
@@ -80,9 +80,9 @@ $view = $dbconnect->query('SELECT * FROM barang');
 				while ($row = $view->fetch_array()) { ?>
 				
 				<tr>
-					<td> <?= $row['id_barang'] ?> </td>
 					<td> <?= $row['kode_barang'] ?> </td>
 					<td><?= $row['nama'] ?></td>
+					<td><?= $row['satuan'] ?></td>
 					<td><?=$row['harga']?></td>
 					<td><?=$row['jumlah']?></td>
 					<td>
@@ -99,12 +99,16 @@ $view = $dbconnect->query('SELECT * FROM barang');
 				
             </table>           
         </div>
+		<!-- end datatable -->
     </div>
 </div>
+
+<!-- script dataTable -->
 <script>
 $(document).ready(function () {
     $('#tbl').DataTable();
 });
 </script>
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
-include 'authcheck.php';
 session_start();
+include 'authcheck.php';
 $view = $dbconnect->query('SELECT * FROM transaksi');
 // return var_dump($view);
 ?>
@@ -31,16 +31,8 @@ $view = $dbconnect->query('SELECT * FROM transaksi');
 
 <div class="container">
 	<div class="page-box">
-	<?php if (isset($_SESSION['success']) && $_SESSION['success'] != '') {?>
-		<div class="alert alert-success" role="alert">
-			<?=$_SESSION['success']?>
-		</div>
-	<?php
-        }
-        $_SESSION['success'] = '';
-    ?>
     <h1 style="margin-bottom: 0.5em;">Riwayat Transaksi</h1>
-	<hr width="50%" style="margin-bottom: 0;">
+	<hr style="margin-bottom: 1em;">
 	<table class="table table-bordered" id="tbl" width="100%">
 		<thead class="table-light">
 			<tr >
@@ -59,7 +51,8 @@ $view = $dbconnect->query('SELECT * FROM transaksi');
 			<td><?=$row['total']?></td>
 			<td><?=$row['nama']?></td>
 			<td>
-                <a href="unduh_struk.php?idtrx=<?=$row['id_transaksi']?>" style="padding: 5px;" class="btn-biru btn-sm">Lihat</a>
+				<a href="unduh_struk.php?idtrx=<?=$row['id_transaksi']?>" class="btn btn-xs btn-primary">Cetak</a>
+                <!-- <a href="unduh_struk.php?idtrx=<?=$row['id_transaksi']?>" class="btn bnt-sm btn-primary">Cetak</a> -->
 			</td>
 		</tr>
 		<?php } ?>

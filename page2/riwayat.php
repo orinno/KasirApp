@@ -40,7 +40,7 @@ $view = $dbconnect->query('SELECT * FROM transaksi');
         $_SESSION['success'] = '';
     ?>
     <h1 style="margin-bottom: 0.5em;">Riwayat Transaksi</h1>
-	<hr width="50%" style="margin-bottom: 0;">
+	<hr style="margin-bottom: 0;">
 	<table class="table table-bordered" id="tbl" width="100%">
 		<thead class="table-light">
 			<tr >
@@ -59,7 +59,7 @@ $view = $dbconnect->query('SELECT * FROM transaksi');
 			<td><?=$row['total']?></td>
 			<td><?=$row['nama']?></td>
 			<td>
-                <a href="unduh_struk.php?idtrx=<?=$row['id_transaksi']?>" class="btn btn-primary">Lihat</a>
+                <a href="unduh_struk.php?idtrx=<?=$row['id_transaksi']?>" class="btn btn-primary">Cetak</a>
 			</td>
 		</tr>
 		<?php } ?>
